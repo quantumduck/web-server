@@ -15,6 +15,20 @@ loop do                                             # Server runs forever
   end
   puts lines                                        # Output the full request to stdout
 
-  client.puts(Time.now.ctime)                       # Output the current time to the client
+  response = "
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <title>My first web server</title>
+    </head>
+    <body>
+      <h1>My first web server</h1>
+      <p>#{Time.now.ctime.to_s}</p>
+    </body>
+  </html>"
+
+  client.puts(response)
+
+  # client.puts(Time.now.ctime)                       # Output the current time to the client
   client.close                                      # Disconnect from the client
 end
