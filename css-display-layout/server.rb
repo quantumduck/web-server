@@ -23,7 +23,7 @@ end
 
 puts "Server started on #{host}:#{port} ..."        # Output to stdout that server started
 
-      binding.pry
+      # binding.pry
 
 loop do                                             # Server runs forever
   client = server.accept                            # Wait for a client to connect. Accept returns a TCPSocket
@@ -39,7 +39,7 @@ loop do                                             # Server runs forever
   # Replace "/Get \//" and "/\ HTTP.*/" with empty strings
   filename = lines[0].gsub(/GET \//, '').gsub(/\ HTTP.*/, '')
 
-    binding.pry
+    # binding.pry
 
   if File.exists?(filename)
     response_body = File.read(filename)
