@@ -15,17 +15,8 @@ loop do                                             # Server runs forever
   end
   puts lines                                        # Output the full request to stdout
 
-  response = "
-  <!DOCTYPE html>
-  <html>
-    <head>
-      <title>My first web server</title>
-    </head>
-    <body>
-      <h1>My first web server</h1>
-      <p>#{Time.now.ctime.to_s}</p>
-    </body>
-  </html>"
+  filename = "index.html"
+  response = File.read(filename)
 
   client.puts(response)
 
